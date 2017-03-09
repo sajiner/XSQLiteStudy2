@@ -27,9 +27,10 @@
 
 - (void)testExample {
 //    NSString *sql = @"create table if not exists t_student(id integer primary key autoincrement, name text, age integer, score real default 60)";
-//     NSString *sql = @"insert into t_student(name, age) values ('jock', 21)";
+//     NSString *sql = @"insert into t_student(name, age) values ('lucy', 18)";
 //    NSString *sql = @"UPDATE t_student SET name = 'Fred' WHERE age = 15";
     NSString *sql = @"select * from t_student";
+    
     NSArray *arr = [[XSqliteTool shareInstance] querySql:sql uid:nil];
 //    BOOL result = [[XSqliteTool shareInstance] dealSql:sql uid:nil];
     NSLog(@"%@", arr);

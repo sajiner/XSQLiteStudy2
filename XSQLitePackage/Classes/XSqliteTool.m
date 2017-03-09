@@ -26,9 +26,9 @@ sqlite3 *ppDb = nil;
         NSLog(@"准备语句失败");
     }
     NSMutableArray *resultArrM = [NSMutableArray array];
-    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
-    [resultArrM addObject:dictM];
+    
     while (sqlite3_step(stmt) == SQLITE_ROW) {
+        NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
         int count = sqlite3_column_count(stmt);
         for (int i = 0; i < count; i++) {
             
@@ -56,6 +56,7 @@ sqlite3 *ppDb = nil;
             }
             [dictM setValue:value forKey:columnName];
         }
+        [resultArrM addObject:dictM];
     }
     sqlite3_finalize(stmt);
     [self closeDB];
