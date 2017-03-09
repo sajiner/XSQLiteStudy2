@@ -13,7 +13,21 @@
 		AE969EFF1E7132E900EC4C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE969EFD1E7132E900EC4C60 /* Main.storyboard */; };
 		AE969F011E7132E900EC4C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE969F001E7132E900EC4C60 /* Assets.xcassets */; };
 		AE969F041E7132E900EC4C60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE969F021E7132E900EC4C60 /* LaunchScreen.storyboard */; };
+		AE969F0E1E7133A100EC4C60 /* XSqliteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969F0D1E7133A100EC4C60 /* XSqliteTool.m */; };
+		AE969F111E7134F600EC4C60 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE969F101E7134F600EC4C60 /* libsqlite3.0.tbd */; };
+		AE969F191E7149C100EC4C60 /* XSQLitePackageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969F181E7149C100EC4C60 /* XSQLitePackageTests.m */; };
+		AE969F211E714A0A00EC4C60 /* XSqliteToolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969F201E714A0A00EC4C60 /* XSqliteToolTest.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE969F1B1E7149C100EC4C60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE969EE91E7132E900EC4C60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE969EF01E7132E900EC4C60;
+			remoteInfo = XSQLitePackage;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AE969EF11E7132E900EC4C60 /* XSQLitePackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSQLitePackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +40,25 @@
 		AE969F001E7132E900EC4C60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE969F031E7132E900EC4C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE969F051E7132E900EC4C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE969F0C1E7133A100EC4C60 /* XSqliteTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSqliteTool.h; sourceTree = "<group>"; };
+		AE969F0D1E7133A100EC4C60 /* XSqliteTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSqliteTool.m; sourceTree = "<group>"; };
+		AE969F101E7134F600EC4C60 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AE969F161E7149C100EC4C60 /* XSQLitePackageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XSQLitePackageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE969F181E7149C100EC4C60 /* XSQLitePackageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XSQLitePackageTests.m; sourceTree = "<group>"; };
+		AE969F1A1E7149C100EC4C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE969F201E714A0A00EC4C60 /* XSqliteToolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSqliteToolTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AE969EEE1E7132E900EC4C60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE969F111E7134F600EC4C60 /* libsqlite3.0.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE969F131E7149C100EC4C60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,7 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				AE969EF31E7132E900EC4C60 /* XSQLitePackage */,
+				AE969F171E7149C100EC4C60 /* XSQLitePackageTests */,
 				AE969EF21E7132E900EC4C60 /* Products */,
+				AE969F0F1E7134F600EC4C60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				AE969EF11E7132E900EC4C60 /* XSQLitePackage.app */,
+				AE969F161E7149C100EC4C60 /* XSQLitePackageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,8 +115,28 @@
 		AE969F0B1E7132F800EC4C60 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AE969F0C1E7133A100EC4C60 /* XSqliteTool.h */,
+				AE969F0D1E7133A100EC4C60 /* XSqliteTool.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		AE969F0F1E7134F600EC4C60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE969F101E7134F600EC4C60 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE969F171E7149C100EC4C60 /* XSQLitePackageTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE969F181E7149C100EC4C60 /* XSQLitePackageTests.m */,
+				AE969F1A1E7149C100EC4C60 /* Info.plist */,
+				AE969F201E714A0A00EC4C60 /* XSqliteToolTest.m */,
+			);
+			path = XSQLitePackageTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +159,24 @@
 			productReference = AE969EF11E7132E900EC4C60 /* XSQLitePackage.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AE969F151E7149C100EC4C60 /* XSQLitePackageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE969F1F1E7149C100EC4C60 /* Build configuration list for PBXNativeTarget "XSQLitePackageTests" */;
+			buildPhases = (
+				AE969F121E7149C100EC4C60 /* Sources */,
+				AE969F131E7149C100EC4C60 /* Frameworks */,
+				AE969F141E7149C100EC4C60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE969F1C1E7149C100EC4C60 /* PBXTargetDependency */,
+			);
+			name = XSQLitePackageTests;
+			productName = XSQLitePackageTests;
+			productReference = AE969F161E7149C100EC4C60 /* XSQLitePackageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -120,6 +190,11 @@
 					AE969EF01E7132E900EC4C60 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
+					};
+					AE969F151E7149C100EC4C60 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AE969EF01E7132E900EC4C60;
 					};
 				};
 			};
@@ -137,6 +212,7 @@
 			projectRoot = "";
 			targets = (
 				AE969EF01E7132E900EC4C60 /* XSQLitePackage */,
+				AE969F151E7149C100EC4C60 /* XSQLitePackageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +228,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE969F141E7149C100EC4C60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -159,13 +242,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE969F0E1E7133A100EC4C60 /* XSqliteTool.m in Sources */,
 				AE969EFC1E7132E900EC4C60 /* ViewController.m in Sources */,
 				AE969EF91E7132E900EC4C60 /* AppDelegate.m in Sources */,
 				AE969EF61E7132E900EC4C60 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE969F121E7149C100EC4C60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE969F211E714A0A00EC4C60 /* XSqliteToolTest.m in Sources */,
+				AE969F191E7149C100EC4C60 /* XSQLitePackageTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE969F1C1E7149C100EC4C60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE969EF01E7132E900EC4C60 /* XSQLitePackage */;
+			targetProxy = AE969F1B1E7149C100EC4C60 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE969EFD1E7132E900EC4C60 /* Main.storyboard */ = {
@@ -297,6 +398,30 @@
 			};
 			name = Release;
 		};
+		AE969F1D1E7149C100EC4C60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XSQLitePackageTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sajiner.XSQLitePackageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XSQLitePackage.app/XSQLitePackage";
+			};
+			name = Debug;
+		};
+		AE969F1E1E7149C100EC4C60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = XSQLitePackageTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sajiner.XSQLitePackageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XSQLitePackage.app/XSQLitePackage";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -314,6 +439,15 @@
 			buildConfigurations = (
 				AE969F091E7132E900EC4C60 /* Debug */,
 				AE969F0A1E7132E900EC4C60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE969F1F1E7149C100EC4C60 /* Build configuration list for PBXNativeTarget "XSQLitePackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE969F1D1E7149C100EC4C60 /* Debug */,
+				AE969F1E1E7149C100EC4C60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
