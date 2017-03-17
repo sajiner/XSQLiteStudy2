@@ -10,13 +10,6 @@
 
 @interface XSqliteTool : NSObject
 
-
-/**
- 单例
- */
-+ (instancetype)shareInstance;
-
-
 /**
  执行数据库
 
@@ -24,7 +17,7 @@
  @param uid 用户标识
  @return 结果，YES-成功 NO-失败
  */
-- (BOOL)dealSql: (NSString *)sql uid: (NSString *)uid;
++ (BOOL)dealSql: (NSString *)sql uid: (NSString *)uid;
 
 
 /**
@@ -34,7 +27,7 @@
  @param uid 用户标识
  @return 结果集
  */
-- (NSMutableArray <NSMutableDictionary *>*)querySql: (NSString *)sql uid: (NSString *)uid;
++ (NSMutableArray <NSMutableDictionary *>*)querySql: (NSString *)sql uid: (NSString *)uid;
 
 
 

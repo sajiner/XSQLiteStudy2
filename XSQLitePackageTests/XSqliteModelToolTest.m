@@ -1,19 +1,20 @@
 //
-//  XSqliteToolTest.m
+//  XSqliteModelToolTest.m
 //  XSQLitePackage
 //
-//  Created by sajiner on 2017/3/9.
+//  Created by 张鑫 on 2017/3/17.
 //  Copyright © 2017年 sajiner. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "XSqliteTool.h"
+#import "XSqliteModelTool.h"
+#import "XStudent.h"
 
-@interface XSqliteToolTest : XCTestCase
+@interface XSqliteModelToolTest : XCTestCase
 
 @end
 
-@implementation XSqliteToolTest
+@implementation XSqliteModelToolTest
 
 - (void)setUp {
     [super setUp];
@@ -26,13 +27,8 @@
 }
 
 - (void)testExample {
-//    NSString *sql = @"create table if not exists t_student(id integer primary key autoincrement, name text, age integer, score real default 60)";
-//     NSString *sql = @"insert into t_student(name, age) values ('lucy', 18)";
-//    NSString *sql = @"UPDATE t_student SET name = 'Fred' WHERE age = 15";
-    NSString *sql = @"select * from t_student";
-    
-    NSArray *arr = [XSqliteTool querySql:sql uid:nil];
-    NSLog(@"%@", arr);
+    BOOL result = [XSqliteModelTool createTable:[XStudent class] uid:nil];
+    XCTAssertEqual(result, YES);
 }
 
 - (void)testPerformanceExample {

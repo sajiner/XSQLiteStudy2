@@ -16,7 +16,7 @@ sqlite3 *ppDb = nil;
 @implementation XSqliteTool
 
 #pragma mark -  查询操作
-- (NSMutableArray<NSMutableDictionary *> *)querySql:(NSString *)sql uid:(NSString *)uid {
++ (NSMutableArray<NSMutableDictionary *> *)querySql:(NSString *)sql uid:(NSString *)uid {
     if (![self openDB:uid]) {
         NSLog(@"打开数据库失败");
         return false;
@@ -65,7 +65,7 @@ sqlite3 *ppDb = nil;
 }
 
 #pragma mark - 执行数据库
-- (BOOL)dealSql: (NSString *)sql uid: (NSString *)uid {
++ (BOOL)dealSql: (NSString *)sql uid: (NSString *)uid {
     if (![self openDB:uid]) {
         NSLog(@"打开数据库失败");
         return false;
@@ -76,7 +76,7 @@ sqlite3 *ppDb = nil;
 }
 
 #pragma mark - 打开数据库
-- (BOOL)openDB: (NSString *)uid {
++ (BOOL)openDB: (NSString *)uid {
     NSString *dbName = @"common.sqlite";
     if (uid) {
         dbName = [NSString stringWithFormat:@"%@.sqlite", uid];
@@ -87,42 +87,8 @@ sqlite3 *ppDb = nil;
 }
 
 #pragma mark - 关闭数据库
-- (void)closeDB {
++ (void)closeDB {
     sqlite3_close(ppDb);
 }
-
-#pragma mark - 单例
-static id _instance;
-+ (instancetype)shareInstance {
-    return [[self alloc] init];
-}
-
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    if (!_instance) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            _instance = [super allocWithZone:zone];
-        });
-    }
-    return _instance;
-}
-
-- (instancetype)init {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [super init];
-    });
-    return _instance;
-}
-
-+ (id)copyWithZone:(struct _NSZone *)zone {
-    return _instance;
-}
-
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone {
-    return _instance;
-}
-
-
 
 @end
