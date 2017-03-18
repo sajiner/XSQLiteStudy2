@@ -10,6 +10,18 @@
 
 @protocol XModelProtocol <NSObject>
 
+/**
+ 主键
+
+ @return 主键
+ */
 + (NSString *)primaryKey;
+
+/**
+ 忽略的类的属性 数组
+
+ @return 被忽略的数组
+ */
++ (NSArray *)ignoreColumnNames;
 
 @end

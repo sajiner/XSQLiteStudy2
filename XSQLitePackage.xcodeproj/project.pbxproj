@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE65D8551E7C14A300EBF1CC /* XStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8541E7C14A300EBF1CC /* XStudent.m */; };
 		AE65D8581E7C164C00EBF1CC /* XSqliteModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8571E7C164C00EBF1CC /* XSqliteModelTool.m */; };
 		AE65D85B1E7C170500EBF1CC /* XModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D85A1E7C170500EBF1CC /* XModelTool.m */; };
 		AE65D85F1E7C1C2700EBF1CC /* XModelToolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D85E1E7C1C2700EBF1CC /* XModelToolTest.m */; };
 		AE65D8621E7C285A00EBF1CC /* XSqliteModelToolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8611E7C285A00EBF1CC /* XSqliteModelToolTest.m */; };
+		AE65D8651E7CD40700EBF1CC /* XStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8641E7CD40700EBF1CC /* XStudent.m */; };
 		AE969EF61E7132E900EC4C60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EF51E7132E900EC4C60 /* main.m */; };
 		AE969EF91E7132E900EC4C60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EF81E7132E900EC4C60 /* AppDelegate.m */; };
 		AE969EFC1E7132E900EC4C60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EFB1E7132E900EC4C60 /* ViewController.m */; };
@@ -35,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE65D8531E7C14A300EBF1CC /* XStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XStudent.h; path = ../XStudent.h; sourceTree = "<group>"; };
-		AE65D8541E7C14A300EBF1CC /* XStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XStudent.m; path = ../XStudent.m; sourceTree = "<group>"; };
 		AE65D8561E7C164C00EBF1CC /* XSqliteModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSqliteModelTool.h; sourceTree = "<group>"; };
 		AE65D8571E7C164C00EBF1CC /* XSqliteModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSqliteModelTool.m; sourceTree = "<group>"; };
 		AE65D8591E7C170500EBF1CC /* XModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XModelTool.h; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		AE65D85E1E7C1C2700EBF1CC /* XModelToolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XModelToolTest.m; sourceTree = "<group>"; };
 		AE65D8601E7C26AF00EBF1CC /* XModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XModelProtocol.h; sourceTree = "<group>"; };
 		AE65D8611E7C285A00EBF1CC /* XSqliteModelToolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSqliteModelToolTest.m; sourceTree = "<group>"; };
+		AE65D8631E7CD40700EBF1CC /* XStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XStudent.h; sourceTree = "<group>"; };
+		AE65D8641E7CD40700EBF1CC /* XStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XStudent.m; sourceTree = "<group>"; };
 		AE969EF11E7132E900EC4C60 /* XSQLitePackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSQLitePackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE969EF51E7132E900EC4C60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE969EF71E7132E900EC4C60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,12 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				AE969F0B1E7132F800EC4C60 /* Classes */,
-				AE65D8531E7C14A300EBF1CC /* XStudent.h */,
-				AE65D8541E7C14A300EBF1CC /* XStudent.m */,
 				AE969EF71E7132E900EC4C60 /* AppDelegate.h */,
 				AE969EF81E7132E900EC4C60 /* AppDelegate.m */,
 				AE969EFA1E7132E900EC4C60 /* ViewController.h */,
 				AE969EFB1E7132E900EC4C60 /* ViewController.m */,
+				AE65D8631E7CD40700EBF1CC /* XStudent.h */,
+				AE65D8641E7CD40700EBF1CC /* XStudent.m */,
 				AE969EFD1E7132E900EC4C60 /* Main.storyboard */,
 				AE969F001E7132E900EC4C60 /* Assets.xcassets */,
 				AE969F021E7132E900EC4C60 /* LaunchScreen.storyboard */,
@@ -265,10 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE65D8551E7C14A300EBF1CC /* XStudent.m in Sources */,
 				AE969F0E1E7133A100EC4C60 /* XSqliteTool.m in Sources */,
 				AE65D8581E7C164C00EBF1CC /* XSqliteModelTool.m in Sources */,
 				AE65D85B1E7C170500EBF1CC /* XModelTool.m in Sources */,
+				AE65D8651E7CD40700EBF1CC /* XStudent.m in Sources */,
 				AE969EFC1E7132E900EC4C60 /* ViewController.m in Sources */,
 				AE969EF91E7132E900EC4C60 /* AppDelegate.m in Sources */,
 				AE969EF61E7132E900EC4C60 /* main.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "XModelTool.h"
 #import <objc/runtime.h>
+#import "XModelProtocol.h"
 
 @implementation XModelTool
 
@@ -40,6 +41,15 @@
         if ([ivarName hasPrefix:@"_"]) {
             ivarName = [ivarName substringFromIndex:1];
         }
+        
+        NSArray *ignoreNames = nil;
+        if ([cls respondsToSelector:@selector(ignoreColumnNames)]) {
+            ignoreNames = [cls ignoreColumnNames];
+        }
+        if ([ignoreNames containsObject:ivarName]) {
+            continue;
+        }
+       
         NSString *type = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
         type = [type stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@\""]];
         

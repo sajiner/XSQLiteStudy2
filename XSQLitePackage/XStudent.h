@@ -17,5 +17,6 @@
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) int stuNum;
 @property (nonatomic, assign) double score;
+@property (nonatomic, assign) double score2;
 
 @end
