@@ -15,7 +15,7 @@
 }
 
 + (NSArray *)ignoreColumnNames {
-    return @[@"b", @"score2"];
+    return @[@"score2"];
 }
 
 @end

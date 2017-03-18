@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XSQLitePackage/Classes/XSqliteModelTool.m"
-            timestampString = "511502358.607107"
+            filePath = "XSQLitePackageTests/XModelToolTest.m"
+            timestampString = "511516866.436771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "+isTableRequiredUpdate:uid:"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-testExample"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XSQLitePackage/Classes/XSqliteTool.m"
+            timestampString = "511517666.534321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "+dealSqls:uid:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

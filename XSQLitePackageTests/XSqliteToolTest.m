@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "XSqliteTool.h"
+#import "XSqliteModelTool.h"
 
 @interface XSqliteToolTest : XCTestCase
 
@@ -29,6 +30,13 @@
 //    NSString *sql = @"create table if not exists t_student(id integer primary key autoincrement, name text, age integer, score real default 60)";
 //     NSString *sql = @"insert into t_student(name, age) values ('lucy', 18)";
 //    NSString *sql = @"UPDATE t_student SET name = 'Fred' WHERE age = 15";
+    Class cls = NSClassFromString(@"XStudent");
+    
+    BOOL result = [XSqliteTool dealSqls:[XSqliteModelTool udpateSqls:cls uid:nil] uid:nil];
+    NSLog(@"%d", result);
+}
+
+- (void)testQueryExample {
     NSString *sql = @"select * from t_student";
     
     NSArray *arr = [XSqliteTool querySql:sql uid:nil];

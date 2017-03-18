@@ -28,7 +28,7 @@
 - (void)testExample {
     Class cls = NSClassFromString(@"XStudent");
     NSArray *sortedArray = [XTableModel tableSortedNames:cls uid:nil];
-    
+    NSLog(@"%@", sortedArray);
 }
 
 - (void)testPerformanceExample {

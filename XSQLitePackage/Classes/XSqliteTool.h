@@ -11,7 +11,7 @@
 @interface XSqliteTool : NSObject
 
 /**
- 执行数据库
+ 执行数据库(增、删、改)
 
  @param sql sql语句
  @param uid 用户标识
@@ -29,6 +29,13 @@
  */
 + (NSMutableArray <NSMutableDictionary *>*)querySql: (NSString *)sql uid: (NSString *)uid;
 
-
+/**
+ 执行多个数据
+ 
+ @param sqls sql语句组
+ @param uid 用户标识
+ @return 结果，YES-成功 NO-失败
+ */
++ (BOOL)dealSqls: (NSArray *)sqls uid: (NSString *)uid;
 
 @end

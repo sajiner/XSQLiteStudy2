@@ -18,6 +18,8 @@
  */
 + (NSString *)tableName: (Class)cls;
 
++ (NSString *)tempTableName: (Class)cls;
+
 /**
  获取成员变量和成员变量的类型 字典
 
@@ -41,5 +43,13 @@
  @return 表的字段及类型
  */
 + (NSString *)columnNameAndTypeStr: (Class)cls;
+
+/**
+ 所有排好序的表的字段
+
+ @param cls 类名
+ @return 所有排好序的表的字段
+ */
++ (NSArray *)tableSortedIvarNames: (Class)cls;
 
 @end

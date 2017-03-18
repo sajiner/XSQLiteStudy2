@@ -62,6 +62,23 @@
     return NSStringFromClass(cls);
 }
 
++ (NSString *)tempTableName:(Class)cls {
+    return [NSString stringWithFormat:@"%@_temp", [self tableName:cls]];
+}
+
++ (NSArray *)tableSortedIvarNames:(Class)cls {
+    NSDictionary *modelDict = [self classIvarNameAndSqliteTypeDict:cls];
+    NSArray *modelNames = modelDict.allKeys;
+    modelNames = [modelNames sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2];
+    }];
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *name in modelNames) {
+        [result addObject:[name lowercaseString]];
+    }
+    return result;
+}
+
 #pragma mark - 私有方法
 + (NSDictionary *)ocTypeToSqlType {
     return @{

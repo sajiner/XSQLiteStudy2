@@ -28,8 +28,8 @@
 
 - (void)testExample {
 //    BOOL result = [XSqliteModelTool createTable:[XStudent class] uid:nil];
-    BOOL result = [XSqliteModelTool isTableRequiredUpdate:[XStudent class] uid:nil];
-    
+    BOOL result = [XSqliteModelTool isTableRequiredUpdate:[XStudent class]  uid:nil];
+    NSLog(@"%d", result);
 }
 
 - (void)testPerformanceExample {

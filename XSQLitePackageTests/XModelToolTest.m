@@ -27,8 +27,9 @@
 }
 
 - (void)testExample {
-    NSString *dict = [XModelTool columnNameAndTypeStr:[XStudent class]];
-    NSLog(@"%@", dict);
+//    NSString *dict = [XModelTool columnNameAndTypeStr:[XStudent class]];
+    NSArray *arr = [XModelTool tableSortedIvarNames:[XStudent class]];
+    NSLog(@"%@", arr);
 }
 
 - (void)testPerformanceExample {

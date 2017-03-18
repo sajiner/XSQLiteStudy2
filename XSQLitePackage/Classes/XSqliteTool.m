@@ -76,6 +76,35 @@ sqlite3 *ppDb = nil;
     return result;
 }
 
++ (BOOL)dealSqls:(NSArray *)sqls uid:(NSString *)uid {
+    [self beginTransaction:uid];
+    for (NSString *sql in sqls) {
+         BOOL result = [self dealSql:sql uid:uid];
+        if (!result) {
+            [self rollBackTransation:uid];
+            return NO;
+        }
+    }
+    [self commitTransaction:uid];
+    return YES;
+}
+
+#pragma mark - 开启事务、提交事务、回滚事务
++ (void)beginTransaction: (NSString *)uid {
+    NSString *sql = @"begin transaction";
+    [self dealSql:sql uid:uid];
+}
+
++ (void)commitTransaction: (NSString *)uid {
+    NSString *sql = @"commit transaction";
+    [self dealSql:sql uid:uid];
+}
+
++ (void)rollBackTransation: (NSString *)uid {
+    NSString *sql = @"rollback transaction";
+    [self dealSql:sql uid:uid];
+}
+
 #pragma mark - 打开数据库
 + (BOOL)openDB: (NSString *)uid {
     NSString *dbName = @"common.sqlite";

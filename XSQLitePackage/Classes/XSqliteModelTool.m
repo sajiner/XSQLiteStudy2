@@ -33,17 +33,59 @@
 
 + (BOOL)isTableRequiredUpdate: (Class)cls uid: (NSString *)uid {
     NSArray *tableSortedNames = [XTableModel tableSortedNames:cls uid:uid];
+    NSArray *modelSortedNames = [XModelTool tableSortedIvarNames:cls];
     
-    NSDictionary *modelDict = [XModelTool classIvarNameAndSqliteTypeDict:cls];
-    NSArray *modelNames = modelDict.allKeys;
-    modelNames = [modelNames sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
-        return [obj1 compare:obj2];
-    }];
-    NSMutableArray *result = [NSMutableArray array];
-    for (NSString *name in modelNames) {
-        [result addObject:[name lowercaseString]];
+    return ![tableSortedNames isEqualToArray:modelSortedNames];
+}
+
++ (BOOL)isSuccessUpdateTable:(Class)cls uid:(NSString *)uid {
+    
+    NSArray *sqls = [self udpateSqls:cls uid:uid];
+    return [XSqliteTool dealSqls:sqls uid:uid];
+}
+
++ (NSArray *)udpateSqls: (Class)cls uid: (NSString *)uid {
+    if ([self isTableRequiredUpdate:cls uid:uid] == NO) {
+        NSLog(@"不需要更新表");
+        return nil;
     }
-    return ![tableSortedNames isEqualToArray:result];
+    // 创建正确结构的临时表
+    NSMutableArray *sqls = [NSMutableArray array];
+    NSString *tableName = [XModelTool tableName:cls];
+    // 1.创建临时表
+    NSString *tempTableName = [XModelTool tempTableName:cls];
+    NSString *columnNameAndType = [XModelTool columnNameAndTypeStr:cls];
+    
+    if (![cls respondsToSelector:@selector(primaryKey)]) {
+        NSLog(@"请先实现+ primaryKey 方法");
+        return nil;
+    }
+    NSString *primaryKey = [cls primaryKey];
+    NSString *tempSql = [NSString stringWithFormat:@"create table if not exists %@(%@, primary key(%@))", tempTableName, columnNameAndType, primaryKey];
+    [sqls addObject:tempSql];
+    
+    // 2.插入旧表中的主键数据到临时表
+    NSString *insertPKeySql = [NSString stringWithFormat:@"insert into %@(%@) select %@ from %@", tempTableName, primaryKey, primaryKey, tableName];
+    [sqls addObject:insertPKeySql];
+    
+    // 根据主键更新新表内容
+    NSArray *oldNames = [XTableModel tableSortedNames:cls uid:uid];
+    NSArray *newNames = [XModelTool tableSortedIvarNames:cls];
+    for (NSString *name in newNames) {
+        if (![oldNames containsObject:name]) {
+            continue;
+        }
+        NSString *updateSql = [NSString stringWithFormat:@"update %@ set %@ = (select %@ from %@ where %@.%@ = %@.%@)", tempTableName, name, name, tableName, tableName, primaryKey, tempTableName, primaryKey];
+        [sqls addObject:updateSql];
+    }
+    // 删除旧表
+    NSString *dropSql = [NSString stringWithFormat:@"drop table if exists %@", tableName];
+    [sqls addObject:dropSql];
+    // 更新表明
+    NSString *tableNameSql = [NSString stringWithFormat:@"alter table %@ rename to %@", tempTableName, tableName];
+    [sqls addObject:tableNameSql];
+    
+    return sqls;
 }
 
 @end
