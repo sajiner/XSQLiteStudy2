@@ -18,4 +18,13 @@
  */
 + (BOOL)createTable: (Class)cls uid: (NSString *)uid;
 
+/**
+ 判断表是否需要更新
+
+ @param cls 类名
+ @param uid uid
+ @return Yes - 需要更新， NO-不需要更新
+ */
++ (BOOL)isTableRequiredUpdate: (Class)cls uid: (NSString *)uid;
+
 @end

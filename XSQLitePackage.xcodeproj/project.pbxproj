@@ -12,6 +12,8 @@
 		AE65D85F1E7C1C2700EBF1CC /* XModelToolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D85E1E7C1C2700EBF1CC /* XModelToolTest.m */; };
 		AE65D8621E7C285A00EBF1CC /* XSqliteModelToolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8611E7C285A00EBF1CC /* XSqliteModelToolTest.m */; };
 		AE65D8651E7CD40700EBF1CC /* XStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8641E7CD40700EBF1CC /* XStudent.m */; };
+		AE65D8681E7CDDBC00EBF1CC /* XTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8671E7CDDBC00EBF1CC /* XTableModel.m */; };
+		AE65D86A1E7CDF6C00EBF1CC /* XXTableModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE65D8691E7CDF6C00EBF1CC /* XXTableModelTest.m */; };
 		AE969EF61E7132E900EC4C60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EF51E7132E900EC4C60 /* main.m */; };
 		AE969EF91E7132E900EC4C60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EF81E7132E900EC4C60 /* AppDelegate.m */; };
 		AE969EFC1E7132E900EC4C60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE969EFB1E7132E900EC4C60 /* ViewController.m */; };
@@ -44,6 +46,9 @@
 		AE65D8611E7C285A00EBF1CC /* XSqliteModelToolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSqliteModelToolTest.m; sourceTree = "<group>"; };
 		AE65D8631E7CD40700EBF1CC /* XStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XStudent.h; sourceTree = "<group>"; };
 		AE65D8641E7CD40700EBF1CC /* XStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XStudent.m; sourceTree = "<group>"; };
+		AE65D8661E7CDDBC00EBF1CC /* XTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTableModel.h; sourceTree = "<group>"; };
+		AE65D8671E7CDDBC00EBF1CC /* XTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTableModel.m; sourceTree = "<group>"; };
+		AE65D8691E7CDF6C00EBF1CC /* XXTableModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTableModelTest.m; sourceTree = "<group>"; };
 		AE969EF11E7132E900EC4C60 /* XSQLitePackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSQLitePackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE969EF51E7132E900EC4C60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE969EF71E7132E900EC4C60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -138,6 +143,8 @@
 				AE65D8601E7C26AF00EBF1CC /* XModelProtocol.h */,
 				AE65D8591E7C170500EBF1CC /* XModelTool.h */,
 				AE65D85A1E7C170500EBF1CC /* XModelTool.m */,
+				AE65D8661E7CDDBC00EBF1CC /* XTableModel.h */,
+				AE65D8671E7CDDBC00EBF1CC /* XTableModel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 				AE969F201E714A0A00EC4C60 /* XSqliteToolTest.m */,
 				AE65D85E1E7C1C2700EBF1CC /* XModelToolTest.m */,
 				AE65D8611E7C285A00EBF1CC /* XSqliteModelToolTest.m */,
+				AE65D8691E7CDF6C00EBF1CC /* XXTableModelTest.m */,
 			);
 			path = XSQLitePackageTests;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE969F0E1E7133A100EC4C60 /* XSqliteTool.m in Sources */,
+				AE65D8681E7CDDBC00EBF1CC /* XTableModel.m in Sources */,
 				AE65D8581E7C164C00EBF1CC /* XSqliteModelTool.m in Sources */,
 				AE65D85B1E7C170500EBF1CC /* XModelTool.m in Sources */,
 				AE65D8651E7CD40700EBF1CC /* XStudent.m in Sources */,
@@ -279,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE65D86A1E7CDF6C00EBF1CC /* XXTableModelTest.m in Sources */,
 				AE65D85F1E7C1C2700EBF1CC /* XModelToolTest.m in Sources */,
 				AE969F211E714A0A00EC4C60 /* XSqliteToolTest.m in Sources */,
 				AE65D8621E7C285A00EBF1CC /* XSqliteModelToolTest.m in Sources */,

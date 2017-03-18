@@ -1,20 +1,19 @@
 //
-//  XSqliteModelToolTest.m
+//  XXTableModelTest.m
 //  XSQLitePackage
 //
-//  Created by 张鑫 on 2017/3/17.
+//  Created by 张鑫 on 2017/3/18.
 //  Copyright © 2017年 sajiner. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "XSqliteModelTool.h"
-#import "XStudent.h"
+#import "XTableModel.h"
 
-@interface XSqliteModelToolTest : XCTestCase
+@interface XXTableModelTest : XCTestCase
 
 @end
 
-@implementation XSqliteModelToolTest
+@implementation XXTableModelTest
 
 - (void)setUp {
     [super setUp];
@@ -27,8 +26,8 @@
 }
 
 - (void)testExample {
-//    BOOL result = [XSqliteModelTool createTable:[XStudent class] uid:nil];
-    BOOL result = [XSqliteModelTool isTableRequiredUpdate:[XStudent class] uid:nil];
+    Class cls = NSClassFromString(@"XStudent");
+    NSArray *sortedArray = [XTableModel tableSortedNames:cls uid:nil];
     
 }
 
