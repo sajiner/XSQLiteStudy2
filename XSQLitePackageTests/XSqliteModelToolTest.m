@@ -45,4 +45,18 @@
     XCTAssertTrue(result);
 }
 
+- (void)testDeleteModel {
+    XStudent *stu = [[XStudent alloc] init];
+    stu.stuNum = 101;
+    BOOL result = [XSqliteModelTool deleteModel:stu uid:nil];
+    XCTAssertTrue(result);
+}
+
+- (void)testQueryModel {
+    XStudent *stu = [[XStudent alloc] init];
+    stu.stuNum = 103;
+    NSArray *result = [XSqliteModelTool queryModel:stu uid:nil];
+    NSLog(@"%@", result);
+}
+
 @end

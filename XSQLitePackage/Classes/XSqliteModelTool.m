@@ -153,4 +153,60 @@
     return [XSqliteTool dealSql:execSql uid:uid];
 }
 
++ (BOOL)deleteModel:(id)model uid:(NSString *)uid {
+    Class cls = [model class];
+    NSString *tableName = [XModelTool tableName:cls];
+    // 获取主键
+    if (![cls respondsToSelector:@selector(primaryKey)]) {
+        NSLog(@"请先实现+ primaryKey 方法");
+        return nil;
+    }
+    NSString *primaryKey = [cls primaryKey];
+    id primaryValue = [model valueForKeyPath:primaryKey];
+   
+    NSString *execSql = [NSString stringWithFormat:@"delete from %@ where %@ = '%@'", tableName, primaryKey, primaryValue];
+    return [XSqliteTool dealSql:execSql uid:uid];
+}
+
++ (NSArray *)queryModel:(id)model uid:(NSString *)uid {
+    Class cls = [model class];
+    NSString *tableName = [XModelTool tableName:cls];
+    // 获取主键
+    if (![cls respondsToSelector:@selector(primaryKey)]) {
+        NSLog(@"请先实现+ primaryKey 方法");
+        return nil;
+    }
+    NSString *primaryKey = [cls primaryKey];
+    id primaryValue = [model valueForKeyPath:primaryKey];
+    
+    NSString *execSql = [NSString stringWithFormat:@"select * from %@ where %@ = '%@'", tableName, primaryKey, primaryValue];
+    NSArray *resultArr = [XSqliteTool querySql:execSql uid:uid];
+    return [self parseResults:resultArr withClass:cls];
+}
+
++ (NSArray *)parseResults: (NSArray <NSDictionary *>*)results withClass:(Class)cls {
+    
+    NSDictionary *nameTypeDict = [XModelTool classIvarNameAndTypeDict:cls];
+    
+    NSMutableArray *models = [NSMutableArray array];
+    for (NSDictionary *dict in results) {
+        id model = [[cls alloc] init];
+        [models addObject:model];
+        [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            NSString *type = nameTypeDict[key];
+            id resultValue = obj;
+            if ([type isEqualToString:@"NSArray"] || [type isEqualToString:@"NSDictionary"]) {
+                NSData *data = [obj dataUsingEncoding:NSUTF8StringEncoding];
+                resultValue = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            } else if ([type isEqualToString:@"NSMutableArray"] || [type isEqualToString:@"NSMutableDictionary"]) {
+                NSData *data = [obj dataUsingEncoding:NSUTF8StringEncoding];
+                resultValue = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            }
+            [model setValue:resultValue forKeyPath:key];
+        }];
+    }
+    NSLog(@"%@", models);
+    return models;
+}
+
 @end

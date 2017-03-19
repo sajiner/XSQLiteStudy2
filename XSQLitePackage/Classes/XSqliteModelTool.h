@@ -46,12 +46,30 @@
 + (NSArray *)udpateSqls: (Class)cls uid: (NSString *)uid;
 
 /**
- 更新或者存储模型
+ 通过操作模型 更新或者存储数据
 
  @param model model
  @param uid uid
  @return 是否成功
  */
 + (BOOL)saveOrUpdateModel: (id)model uid: (NSString *)uid;
+
+/**
+ 通过操作模型 删除数据
+
+ @param model model
+ @param uid uid
+ @return 是否成功
+ */
++ (BOOL)deleteModel: (id)model uid: (NSString *)uid;
+
+/**
+ 通过操作模型 查找数据
+ 
+ @param model model
+ @param uid uid
+ @return 结果集
+ */
++ (NSArray *)queryModel: (id)model uid: (NSString *)uid;
 
 @end
