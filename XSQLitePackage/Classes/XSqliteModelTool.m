@@ -31,6 +31,7 @@
     return [XSqliteTool dealSql:sql uid:uid];
 }
 
+#pragma mark - 判断是否需要更新表格
 + (BOOL)isTableRequiredUpdate: (Class)cls uid: (NSString *)uid {
     NSArray *tableSortedNames = [XTableModel tableSortedNames:cls uid:uid];
     NSArray *modelSortedNames = [XModelTool tableSortedIvarNames:cls];
@@ -38,12 +39,14 @@
     return ![tableSortedNames isEqualToArray:modelSortedNames];
 }
 
+#pragma mark - 是否更新成功
 + (BOOL)isSuccessUpdateTable:(Class)cls uid:(NSString *)uid {
     
     NSArray *sqls = [self udpateSqls:cls uid:uid];
     return [XSqliteTool dealSqls:sqls uid:uid];
 }
 
+#pragma mark - 返回所有需要操作的sql语句
 + (NSArray *)udpateSqls: (Class)cls uid: (NSString *)uid {
     if ([self isTableRequiredUpdate:cls uid:uid] == NO) {
         NSLog(@"不需要更新表");
@@ -153,6 +156,7 @@
     return [XSqliteTool dealSql:execSql uid:uid];
 }
 
+#pragma mark - 通过操作模型 删除数据
 + (BOOL)deleteModel:(id)model uid:(NSString *)uid {
     Class cls = [model class];
     NSString *tableName = [XModelTool tableName:cls];
@@ -168,6 +172,7 @@
     return [XSqliteTool dealSql:execSql uid:uid];
 }
 
+#pragma mark -  通过操作模型 查找数据
 + (NSArray *)queryModel:(id)model uid:(NSString *)uid {
     Class cls = [model class];
     NSString *tableName = [XModelTool tableName:cls];
