@@ -16,27 +16,44 @@
 
 @implementation XModelToolTest
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+/**
+  获取表名
+ */
+- (void)testGetTableName {
+    NSString *tableName = [XModelTool tableName:[XStudent class]];
+    NSLog(@"%@", tableName);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+/**
+ 获取成员变量和成员变量的类型 字典
+ */
+- (void)testGetIvarNameAndTypeDict {
+    NSDictionary *dict = [XModelTool classIvarNameAndTypeDict:[XStudent class]];
+    NSLog(@"%@", dict);
 }
 
-- (void)testExample {
-//    NSString *dict = [XModelTool columnNameAndTypeStr:[XStudent class]];
-    NSArray *arr = [XModelTool tableSortedIvarNames:[XStudent class]];
-    NSLog(@"%@", arr);
+/**
+ 获取类的成员变量和成员变量的类型映射成sqlite的类型 字典
+ */
+- (void)testIvarNameAndSqliteTypeDict {
+    NSDictionary *dict = [XModelTool classIvarNameAndSqliteTypeDict:[XStudent class]];
+    NSLog(@"%@", dict);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+/**
+  获取表的字段及类型
+ */
+- (void)testGetColumnNameAndTypeStr {
+    NSDictionary *dict = [XModelTool classIvarNameAndSqliteTypeDict:[XStudent class]];
+    NSLog(@"%@", dict);
+}
+
+/**
+ 所有排好序的表的字段
+ */
+- (void)testGetTableSortedIvarNames {
+    NSArray *array = [XModelTool tableSortedIvarNames:[XStudent class]];
+    NSLog(@"%@", array);
 }
 
 @end

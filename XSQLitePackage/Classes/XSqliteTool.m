@@ -9,8 +9,8 @@
 #import "XSqliteTool.h"
 #import "sqlite3.h"
 
-//#define kPathName NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
-#define kPathName @"/Users/sajiner/Desktop"
+#define kPathName NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
+//#define kPathName @"/Users/sajiner/Desktop"
 
 sqlite3 *ppDb = nil;
 

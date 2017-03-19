@@ -16,27 +16,19 @@
 
 @implementation XSqliteModelToolTest
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)testCreateTable {
+    BOOL result = [XSqliteModelTool createTable:[XStudent class] uid:nil];
+    XCTAssertTrue(result);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testUpdateTable {
+    BOOL result = [XSqliteModelTool isTableRequiredUpdate:[XStudent class] uid:nil];
+    XCTAssertFalse(result);
 }
 
-- (void)testExample {
-//    BOOL result = [XSqliteModelTool createTable:[XStudent class] uid:nil];
-    BOOL result = [XSqliteModelTool isTableRequiredUpdate:[XStudent class]  uid:nil];
-    NSLog(@"%d", result);
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testSuccessUpdateTable {
+    BOOL result = [XSqliteModelTool isSuccessUpdateTable:[XStudent class] uid:nil];
+    XCTAssertTrue(result);
 }
 
 @end

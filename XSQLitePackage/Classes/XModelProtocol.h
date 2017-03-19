@@ -24,4 +24,11 @@
  */
 + (NSArray *)ignoreColumnNames;
 
+/**
+ 表的字段名更欢
+
+ @return 新旧表字段名的字典
+ */
++ (NSDictionary *)oldNameToNewName;
+
 @end

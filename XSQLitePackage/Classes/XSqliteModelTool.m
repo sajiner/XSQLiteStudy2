@@ -69,13 +69,22 @@
     [sqls addObject:insertPKeySql];
     
     // 根据主键更新新表内容
+    NSDictionary *oldNameToNewNameDict = @{};
+    if ([cls respondsToSelector:@selector(oldNameToNewName)]) {
+        oldNameToNewNameDict = [cls oldNameToNewName];
+    }
     NSArray *oldNames = [XTableModel tableSortedNames:cls uid:uid];
     NSArray *newNames = [XModelTool tableSortedIvarNames:cls];
-    for (NSString *name in newNames) {
-        if (![oldNames containsObject:name]) {
+    for (NSString *newName in newNames) {
+        NSString *oldName = newName;
+        if ([oldNameToNewNameDict[newName] length] != 0) {
+            oldName = oldNameToNewNameDict[newName];
+        }
+        
+        if (![oldNames containsObject:newName] && ![oldNames containsObject:oldName]) {
             continue;
         }
-        NSString *updateSql = [NSString stringWithFormat:@"update %@ set %@ = (select %@ from %@ where %@.%@ = %@.%@)", tempTableName, name, name, tableName, tableName, primaryKey, tempTableName, primaryKey];
+        NSString *updateSql = [NSString stringWithFormat:@"update %@ set %@ = (select %@ from %@ where %@.%@ = %@.%@)", tempTableName, newName, oldName, tableName, tableName, primaryKey, tempTableName, primaryKey];
         [sqls addObject:updateSql];
     }
     // 删除旧表

@@ -15,7 +15,13 @@
 }
 
 + (NSArray *)ignoreColumnNames {
-    return @[@"score2"];
+    return @[@"b", @"score2"];
+}
+
++ (NSDictionary *)oldNameToNewName {
+    return @{
+             @"age" : @"age2"
+             };
 }
 
 @end
