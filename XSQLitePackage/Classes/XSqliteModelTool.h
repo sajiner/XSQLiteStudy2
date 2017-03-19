@@ -45,4 +45,13 @@
  */
 + (NSArray *)udpateSqls: (Class)cls uid: (NSString *)uid;
 
+/**
+ 更新或者存储模型
+
+ @param model model
+ @param uid uid
+ @return 是否成功
+ */
++ (BOOL)saveOrUpdateModel: (id)model uid: (NSString *)uid;
+
 @end

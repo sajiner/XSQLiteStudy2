@@ -31,4 +31,18 @@
     XCTAssertTrue(result);
 }
 
+- (void)testSaveUpdateModel {
+    XStudent *stu = [[XStudent alloc] init];
+    stu.stuNum = 103;
+    stu.name = @"xx";
+    stu.score = 123;
+    stu.age = 44;
+    stu.array = @[@1, @12];
+    stu.dictM = [@{
+                  @"a": @"b"
+                  } mutableCopy];
+    BOOL result = [XSqliteModelTool saveOrUpdateModel:stu uid:nil];
+    XCTAssertTrue(result);
+}
+
 @end

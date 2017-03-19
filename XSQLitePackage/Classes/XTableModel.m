@@ -39,4 +39,11 @@
     return names;
 }
 
++ (BOOL)isTableExists:(Class)cls uid:(NSString *)uid {
+    NSString *tableName = [XModelTool tableName:cls];
+    NSString *querySqlStr = [NSString stringWithFormat:@"select sql from sqlite_master where type = 'table' and name = '%@'", tableName];
+    NSArray *result = [XSqliteTool querySql:querySqlStr uid:uid];
+    return result.count > 0;
+}
+
 @end

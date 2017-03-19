@@ -19,4 +19,13 @@
  */
 + (NSArray *)tableSortedNames: (Class)cls uid: (NSString *)uid;
 
+/**
+ 判断表格是否存在
+
+ @param cls 类名
+ @param uid uid
+ @return 存在与否
+ */
++ (BOOL)isTableExists: (Class)cls uid: (NSString *)uid;
+
 @end

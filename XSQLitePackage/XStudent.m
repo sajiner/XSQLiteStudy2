@@ -19,9 +19,7 @@
 }
 
 + (NSDictionary *)oldNameToNewName {
-    return @{
-             @"age" : @"age2"
-             };
+    return nil;
 }
 
 @end

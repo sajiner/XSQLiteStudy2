@@ -18,5 +18,7 @@
 @property (nonatomic, assign) int stuNum;
 @property (nonatomic, assign) double score;
 @property (nonatomic, assign) double score2;
+@property (nonatomic, strong) NSArray *array;
+@property (nonatomic, strong) NSMutableDictionary *dictM;
 
 @end

@@ -97,4 +97,60 @@
     return sqls;
 }
 
++ (BOOL)saveOrUpdateModel:(id)model uid:(NSString *)uid {
+    
+    // 判断表格是否存在，不存在就创建
+    Class cls = [model class];
+    if (![XTableModel isTableExists:cls uid:uid]) {
+        NSLog(@"表不存在");
+        [self createTable:cls uid:uid];
+    }
+    // 判断是否需要更新, 需要，就更新
+    if ([self isTableRequiredUpdate:cls uid:uid]) {
+        BOOL result = [self isSuccessUpdateTable:cls uid:uid];
+        if (!result) {
+            NSLog(@"更新表格失败");
+            return NO;
+        }
+    }
+    NSString *tableName = [XModelTool tableName:cls];
+    // 获取主键
+    if (![cls respondsToSelector:@selector(primaryKey)]) {
+        NSLog(@"请先实现+ primaryKey 方法");
+        return nil;
+    }
+    NSString *primaryKey = [cls primaryKey];
+    id primaryValue = [model valueForKeyPath:primaryKey];
+    // 根据主键的值判断是更新还是保存（有值-更新，无值-保存
+    NSString *checkSql = [NSString stringWithFormat:@"select * from %@ where %@ = '%@'", tableName, primaryKey, primaryValue];
+    NSArray *result = [XSqliteTool querySql:checkSql uid:uid];
+    
+    NSArray *columnNames = [XModelTool classIvarNameAndTypeDict:cls].allKeys;
+    NSMutableArray *setValueArray = [NSMutableArray array];
+    NSMutableArray *values = [NSMutableArray array];
+    
+    for (NSString *columnName in columnNames) {
+        id value = [model valueForKeyPath:columnName];
+        if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]) {
+            NSData *data = [NSJSONSerialization dataWithJSONObject:value options:NSJSONWritingPrettyPrinted error:nil];
+            value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        
+        [values addObject:value];
+        
+        NSString *str = [NSString stringWithFormat:@"%@='%@'", columnName, value];
+        [setValueArray addObject:str];
+    }
+    
+    NSString *execSql;
+    // 更新
+    if (result.count > 0) {
+        execSql = [NSString stringWithFormat:@"update %@ set %@ where %@ = %@", tableName, [setValueArray componentsJoinedByString:@","], primaryKey, primaryValue];
+    } else { // 插入
+        execSql = [NSString stringWithFormat:@"insert into %@(%@) values('%@')", tableName, [columnNames componentsJoinedByString:@","], [values componentsJoinedByString:@"','"]];
+    }
+    
+    return [XSqliteTool dealSql:execSql uid:uid];
+}
+
 @end
